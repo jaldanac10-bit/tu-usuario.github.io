@@ -1,0 +1,97 @@
+# ==============================================================================
+# UNIVERSIDAD MARIANO GÁLVEZ DE GUATEMALA
+# Facultad de Ingeniería en Sistemas de Información y Ciencias de la Computación
+# Curso: Algoritmos
+# Estudiante: Javier Eduardo Aldana Cruz
+# Carné: 1690-26-4502
+# ==============================================================================
+
+def hoja_1_tienda():
+    print("\n--- HOJA DE TRABAJO 1: Cálculo de Total en Tienda ---")
+    producto = input("Añadir producto: ").strip()
+    
+    try:
+        cantidad = int(input("Añadir cantidad: "))
+        precio_unitario = float(input("Añadir precio unitario (Q): "))
+        
+        if cantidad <= 0 or precio_unitario <= 0:
+            print("Error: La cantidad y el precio deben ser mayores a cero.")
+            return
+
+        subtotal = cantidad * precio_unitario
+        
+        # Regla: Si subtotal >= 500, se aplica 10% de descuento
+        if subtotal >= 500.00:
+            descuento = subtotal * 0.10
+        else:
+            descuento = 0.0
+
+        total = subtotal - descuento
+
+        print(f"\nResumen de Compra ({producto}):")
+        print(f"Subtotal: Q{subtotal:.2f}")
+        print(f"Descuento: Q{descuento:.2f}")
+        print(f"Total a pagar: Q{total:.2f}")
+
+    except ValueError:
+        print("Error: Ingrese valores numéricos válidos.")
+
+
+def hoja_2_estacionamiento():
+    print("\n--- HOJA DE TRABAJO 2: Cobro de Estacionamiento ---")
+    try:
+        horas = int(input("Ingrese horas de uso: "))
+        tarifa = float(input("Ingrese tarifa por hora (Q): "))
+
+        # Validaciones de la Hoja 2
+        if horas > 0 and tarifa > 0:
+            total = horas * tarifa
+            print(f"Total a pagar: Q{total:.2f}")
+        else:
+            print("Error: Las horas y la tarifa deben ser mayores a cero.")
+
+    except ValueError:
+        print("Error: Entrada no válida. Debe ingresar números.")
+
+
+def hoja_3_calificaciones():
+    print("\n--- HOJA DE TRABAJO 3: Control de Calificaciones ---")
+    nombre = input("Ingrese el nombre del estudiante: ").strip()
+
+    # Validación de nombre no vacío
+    if not nombre:
+        print("Error: Identifíquese antes de proceder. El nombre no puede estar vacío.")
+        return
+
+    try:
+        nota1 = float(input("Ingrese nota 1: "))
+        nota2 = float(input("Ingrese nota 2: "))
+        nota3 = float(input("Ingrese nota 3: "))
+
+        # Validación de rango [0 - 100]
+        if not (0 <= nota1 <= 100 and 0 <= nota2 <= 100 and 0 <= nota3 <= 100):
+            print("Error: Nota inválida, por favor ingrese valores entre 0 y 100.")
+            return
+
+        # Cálculo correcto usando paréntesis
+        promedio = (nota1 + nota2 + nota3) / 3.0
+
+        print(f"\nEstudiante: {nombre}")
+        print(f"Promedio: {promedio:.2f}")
+
+        # Condición de aprobación (>= 61)
+        if promedio >= 61.0:
+            print("Estado: APROBADO")
+        else:
+            print("Estado: REPROBADO")
+
+    except ValueError:
+        print("Error: Entrada de texto identificada. Por favor, ingrese valores numéricos.")
+
+
+if __name__ == "__main__":
+    print("=== EJECUCIÓN DE PRUEBAS DE ALGORITMOS ===")
+    # Puedes ejecutar la función que desees probar:
+    hoja_1_tienda()
+    hoja_2_estacionamiento()
+    hoja_3_calificaciones()
