@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="laboratorio_semana7/laboratorio_semana7.vcxproj" />
-</Solution>
